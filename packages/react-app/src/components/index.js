@@ -6,7 +6,7 @@ export const Header = styled.header`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   color: white;
 `;
 
@@ -45,7 +45,7 @@ export const Button = styled.button`
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  margin: 0px 20px;
+  margin: 1px 20px;
   padding: 12px 24px;
 
   ${props => props.hidden && "hidden"} :focus {

@@ -106,31 +106,69 @@ function App() {
   return (
     <div>
       <Header>
+        <Image src={logo} alt="react-logo" />
+        <p>
+          Update Debt Ceilings
+        </p>
         <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
       </Header>
       <Body>
-      <Image src={logo} alt="react-logo" />
-        <p>
-          Maker Support Functions
-        </p>
+      
+        
         {/* Remove the "hidden" prop and open the JavaScript console in the browser to see what this function does */}
         <p>
-          MAINNET
+          Mainnet
         </p>
         <Button onClick={() => updateAllCeilings()}>
           Update All Debt Ceilings
         </Button>
-        <Button onClick={() => poke()}>
-          Poke OSMs
+        <Button onClick={() => updateCeiling("0x414156452d410000000000000000000000000000000000000000000000000000")}>
+          AAVE-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x42414c2d41000000000000000000000000000000000000000000000000000000")}>
+          BAL-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x4241542d41000000000000000000000000000000000000000000000000000000")}>
+          BAT-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x434f4d502d410000000000000000000000000000000000000000000000000000")}>
+          COMP-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x4554482d41000000000000000000000000000000000000000000000000000000")}>
+          ETH-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x4554482d42000000000000000000000000000000000000000000000000000000")}>
+          ETH-B
+        </Button>
+        <Button onClick={() => updateCeiling("0x4b4e432d41000000000000000000000000000000000000000000000000000000")}>
+          KNC-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x4c494e4b2d410000000000000000000000000000000000000000000000000000")}>
+          LINK-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x4c52432d41000000000000000000000000000000000000000000000000000000")}>
+          LRC-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x4d414e412d410000000000000000000000000000000000000000000000000000")}>
+          MANA-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x52454e4254432d41000000000000000000000000000000000000000000000000")}>
+          RENBTC-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x554e492d41000000000000000000000000000000000000000000000000000000")}>
+          UNI-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x574254432d410000000000000000000000000000000000000000000000000000")}>
+          WBTC-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x5946492d41000000000000000000000000000000000000000000000000000000")}>
+          YFI-A
         </Button>
         <p>
-          KOVAN
+          Kovan
         </p>
         <Button onClick={() => updateAllCeilingsKovan()}>
           Update All Debt Ceilings
-        </Button>
-        <Button onClick={() => pokeKovan()}>
-          Poke OSMs
         </Button>
         
       </Body>
