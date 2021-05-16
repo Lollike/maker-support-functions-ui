@@ -120,7 +120,7 @@ function App() {
           Mainnet
         </p>
         <Button onClick={() => updateAllCeilings()}>
-          Update All Debt Ceilings
+          Update All Debt Ceilings (this is expensive)
         </Button>
         <Button onClick={() => updateCeiling("0x414156452d410000000000000000000000000000000000000000000000000000")}>
           AAVE-A
@@ -206,7 +206,7 @@ function App() {
         <Button onClick={() => updateAllCeilingsKovan()}>
           Update All Debt Ceilings
         </Button>
-        <p><a href="https://github.com/Lollike/maker-support-functions-ui/">Source code</a></p>
+        <p><a href="https://github.com/Lollike/maker-support-functions-ui/">Source code</a> - <a href="https://github.com/Lollike/maker-support-functions-ui#disclaimer">Disclaimer</a></p>
       </Body>
     </div>
   );
