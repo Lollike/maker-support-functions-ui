@@ -140,6 +140,9 @@ function App() {
         <Button onClick={() => updateCeiling("0x4554482d42000000000000000000000000000000000000000000000000000000")}>
           ETH-B
         </Button>
+        <Button onClick={() => updateCeiling("0x4554482d43000000000000000000000000000000000000000000000000000000")}>
+          ETH-C
+        </Button>
         <Button onClick={() => updateCeiling("0x4b4e432d41000000000000000000000000000000000000000000000000000000")}>
           KNC-A
         </Button>
@@ -164,13 +167,46 @@ function App() {
         <Button onClick={() => updateCeiling("0x5946492d41000000000000000000000000000000000000000000000000000000")}>
           YFI-A
         </Button>
+        <Button onClick={() => updateCeiling("0x5a52582d41000000000000000000000000000000000000000000000000000000")}>
+          ZRX-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e695632416176654574682d41000000000000000000000000000000000000")}>
+          UniV2AaveEth-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e6956324461694574682d4100000000000000000000000000000000000000")}>
+          UniV2DaiEth-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e695632446169557364632d41000000000000000000000000000000000000")}>
+         UniV2DaiUsdc-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e695632446169557364742d41000000000000000000000000000000000000")}>
+         UniV2DaiUsdt-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e695632457468557364742d41000000000000000000000000000000000000")}>
+          UniV2EthUsdt-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e6956324c696e6b4574682d41000000000000000000000000000000000000")}>
+          UniV2LinkEth-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e695632556e694574682d4100000000000000000000000000000000000000")}>
+          UniV2UniEth-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e695632557364634574682d41000000000000000000000000000000000000")}>
+         UniV2UsdcEth-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e695632576274634461692d41000000000000000000000000000000000000")}>
+          UniV2WbtcDai-A
+        </Button>
+        <Button onClick={() => updateCeiling("0x556e695632576274634574682d41000000000000000000000000000000000000")}>
+          UniV2WbtcEth-A
+        </Button>
         <p>
           Kovan
         </p>
         <Button onClick={() => updateAllCeilingsKovan()}>
           Update All Debt Ceilings
         </Button>
-        
+        <p><a href="https://github.com/Lollike/maker-support-functions-ui/">Source code</a></p>
       </Body>
     </div>
   );
