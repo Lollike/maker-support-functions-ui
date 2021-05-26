@@ -31,6 +31,15 @@ async function updateCeiling(ilk){
   
   AutoLine.exec(ilk);
 }
+
+async function updateCeilingKovan(ilk){
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const AutoLine = new Contract(addresses.dssAutoLineKovanAddress, abis.autoLine, signer);
+  
+  AutoLine.exec(ilk);
+}
+
 async function updateAllCeilings(){
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
@@ -122,82 +131,82 @@ function App() {
         <Button onClick={() => updateAllCeilings()}>
           Update All Debt Ceilings (this is expensive)
         </Button>
-        <Button onClick={() => updateCeiling("0x414156452d410000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("AAVE-A"))}>
           AAVE-A
         </Button>
-        <Button onClick={() => updateCeiling("0x42414c2d41000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("BAL-A"))}>
           BAL-A
         </Button>
-        <Button onClick={() => updateCeiling("0x4241542d41000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("BAT-A"))}>
           BAT-A
         </Button>
-        <Button onClick={() => updateCeiling("0x434f4d502d410000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("COMP-A"))}>
           COMP-A
         </Button>
-        <Button onClick={() => updateCeiling("0x4554482d41000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("ETH-A"))}>
           ETH-A
         </Button>
-        <Button onClick={() => updateCeiling("0x4554482d42000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("ETH-B"))}>
           ETH-B
         </Button>
-        <Button onClick={() => updateCeiling("0x4554482d43000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("ETH-C"))}>
           ETH-C
         </Button>
-        <Button onClick={() => updateCeiling("0x4b4e432d41000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("KNC-A"))}>
           KNC-A
         </Button>
-        <Button onClick={() => updateCeiling("0x4c494e4b2d410000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("LINK-A"))}>
           LINK-A
         </Button>
-        <Button onClick={() => updateCeiling("0x4c52432d41000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("LRC-A"))}>
           LRC-A
         </Button>
-        <Button onClick={() => updateCeiling("0x4d414e412d410000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("MANA-A"))}>
           MANA-A
         </Button>
-        <Button onClick={() => updateCeiling("0x52454e4254432d41000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("RENBTC-A"))}>
           RENBTC-A
         </Button>
-        <Button onClick={() => updateCeiling("0x554e492d41000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNI-A"))}>
           UNI-A
         </Button>
-        <Button onClick={() => updateCeiling("0x574254432d410000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("WBTC-A"))}>
           WBTC-A
         </Button>
-        <Button onClick={() => updateCeiling("0x5946492d41000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("YFI-A"))}>
           YFI-A
         </Button>
-        <Button onClick={() => updateCeiling("0x5a52582d41000000000000000000000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("ZRX-A"))}>
           ZRX-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e695632416176654574682d41000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2AAVEETH-A"))}>
           UniV2AaveEth-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e6956324461694574682d4100000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2DAIETH-A"))}>
           UniV2DaiEth-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e695632446169557364632d41000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2DAIUSDC-A"))}>
          UniV2DaiUsdc-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e695632446169557364742d41000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2DAIUSDT-A"))}>
          UniV2DaiUsdt-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e695632457468557364742d41000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2ETHUSDT-A"))}>
           UniV2EthUsdt-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e6956324c696e6b4574682d41000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2LINKETH-A"))}>
           UniV2LinkEth-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e695632556e694574682d4100000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2UNIETH-A"))}>
           UniV2UniEth-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e695632557364634574682d41000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2USDCETH-A"))}>
          UniV2UsdcEth-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e695632576274634461692d41000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2WBTCDAI-A"))}>
           UniV2WbtcDai-A
         </Button>
-        <Button onClick={() => updateCeiling("0x556e695632576274634574682d41000000000000000000000000000000000000")}>
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2WBTCETH-A"))}>
           UniV2WbtcEth-A
         </Button>
         <p>
