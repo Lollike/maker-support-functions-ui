@@ -119,19 +119,18 @@ function App() {
   return (
     <div>
       <Header>
-        <Image src={logo} alt="react-logo" />
-        <h2>Update Maker Debt Ceilings</h2>
+        <Image src={logo} alt="react-logo"/>
+        
         <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
       </Header>
       <Body> 
         {/* Remove the "hidden" prop and open the JavaScript console in the browser to see what this function does */}
-        
-        <p>Mainnet</p>
-
+        <h2>Update Maker Debt Ceilings</h2>
+        <h3>Mainnet</h3>
+        Select collateral type:
         {/*<Button onClick={() => updateAllCeilings()}>
           Update All Debt Ceilings (this is expensive)
   </Button>*/}
-        Select collateral type:
         <p><Dropdown name="ilkList" id="ilkList">
           <option text="AAVE-A">AAVE-A</option>
           <option text="BAL-A">BAL-A</option>
@@ -242,9 +241,9 @@ function App() {
         <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2WBTCETH-A"))}>
           UniV2WbtcEth-A
   </Button>*/}
-        <h4>
+        <h3>
           Kovan
-        </h4>
+        </h3>
         <Button onClick={() => updateAllCeilingsKovan()}>
           Update All Debt Ceilings
         </Button>
