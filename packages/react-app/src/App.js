@@ -4,12 +4,14 @@ import { getDefaultProvider } from "@ethersproject/providers";
 import { ethers } from "ethers";
 import { useQuery } from "@apollo/react-hooks";
 
-import { Body, Button, Header, Image, Link } from "./components";
+import { Body, Button, Header, Image, Link, Dropdown } from "./components";
 import logo from "./Logo_Maker.png";
 import useWeb3Modal from "./hooks/useWeb3Modal";
 
 import { addresses, abis } from "@project/contracts";
 import GET_TRANSFERS from "./graphql/subgraph";
+
+let ilkSelect = document.getElementById("ilkList");
 
 async function readOnChainData() {
   // Should replace with the end-user wallet, e.g. Metamask
@@ -112,26 +114,57 @@ function App() {
     }
   }, [loading, error, data]);
 
+  let ilkSelect = document.getElementById("ilkList");
+
   return (
     <div>
       <Header>
         <Image src={logo} alt="react-logo" />
-        <p>
-          Update Debt Ceilings
-        </p>
+        <h2>Update Maker Debt Ceilings</h2>
         <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal} />
       </Header>
-      <Body>
-      
-        
+      <Body> 
         {/* Remove the "hidden" prop and open the JavaScript console in the browser to see what this function does */}
-        <p>
-          Mainnet
-        </p>
-        <Button onClick={() => updateAllCeilings()}>
+        
+        <p>Mainnet</p>
+
+        {/*<Button onClick={() => updateAllCeilings()}>
           Update All Debt Ceilings (this is expensive)
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("AAVE-A"))}>
+  </Button>*/}
+        Select collateral type:
+        <p><Dropdown name="ilkList" id="ilkList">
+          <option text="AAVE-A">AAVE-A</option>
+          <option text="BAL-A">BAL-A</option>
+          <option text="BAT-A">BAT-A</option>
+          <option text="COMP-A">COMP-A</option>
+          <option text="ETH-A">ETH-A</option>
+          <option text="ETH-B">ETH-B</option>
+          <option text="ETH-C">ETH-C</option>
+          <option text="KNC-A">KNC-A</option>
+          <option text="LRC-A">LRC-A</option>
+          <option text="MANA-A">MANA-A</option>
+          <option text="RENBTC-A">RENBTC-A</option>
+          <option text="UNI-A">UNI-A</option>
+          <option text="WBTC-A">WBTC-A</option>
+          <option text="YFI-A">YFI-A</option>
+          <option text="ZRX-A">ZRX-A</option>
+          <option text="UNIV2AAVEETH-A">UNIV2AAVEETH-A</option>
+          <option text="UNIV2DAIETH-A">UNIV2DAIETH-A</option>
+          <option text="UNIV2DAIUSDC-A">UNIV2DAIUSDC-A</option>
+          <option text="UNIV2DAIUSDT-A">UNIV2DAIUSDT-A</option>
+          <option text="UNIV2ETHUSDT-A">UNIV2ETHUSDT-A</option>
+          <option text="UNIV2LINKETH-A">UNIV2LINKETH-A</option>
+          <option text="UNIV2UNIETH-A">UNIV2UNIETH-A</option>
+          <option text="UNIV2USDCETH-A">UNIV2USDCETH-A</option>
+          <option text="UNIV2WBTCDAI-A">UNIV2WBTCDAI-A</option>
+          <option text="UNIV2WBTCETH-A">UNIV2WBTCETH-A</option>          
+        </Dropdown>
+        
+
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String(ilkSelect.options[ilkSelect.selectedIndex].text))}>
+          Update Debt Ceiling
+        </Button></p>
+        {/*<Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("AAVE-A"))}>
           AAVE-A
         </Button>
         <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("BAL-A"))}>
@@ -208,14 +241,14 @@ function App() {
         </Button>
         <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2WBTCETH-A"))}>
           UniV2WbtcEth-A
-        </Button>
-        <p>
+  </Button>*/}
+        <h4>
           Kovan
-        </p>
+        </h4>
         <Button onClick={() => updateAllCeilingsKovan()}>
           Update All Debt Ceilings
         </Button>
-        <p><a href="https://github.com/Lollike/maker-support-functions-ui/">Source code</a> - <a href="https://github.com/Lollike/maker-support-functions-ui#disclaimer">Disclaimer</a></p>
+        <p><Link href="https://github.com/Lollike/maker-support-functions-ui/">Source code</Link> - <Link href="https://github.com/Lollike/maker-support-functions-ui#disclaimer">Disclaimer</Link></p>
       </Body>
     </div>
   );

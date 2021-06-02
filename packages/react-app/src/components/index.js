@@ -32,7 +32,7 @@ export const Link = styled.a.attrs({
   target: "_blank",
   rel: "noopener noreferrer",
 })`
-  color: #61dafb;
+  color: #1AAB9B;
   margin-top: 10px;
 `;
 
@@ -45,11 +45,23 @@ export const Button = styled.button`
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  margin: 1px 20px;
+  margin: 1px 5px;
   padding: 12px 24px;
 
   ${props => props.hidden && "hidden"} :focus {
     border: none;
     outline: none;
   }
+`;
+export const Dropdown = styled.select`
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  color: #282c34;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  text-decoration: none;
+  margin: 0px 0px;
+  padding: 12px 24px;
 `;
