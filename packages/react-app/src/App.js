@@ -163,7 +163,7 @@ function App() {
         <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String(ilkSelect.options[ilkSelect.selectedIndex].text))}>
           Update Debt Ceiling
         </Button></p>
-        {/*<Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("AAVE-A"))}>
+        { /*<Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("AAVE-A"))}>
           AAVE-A
         </Button>
         <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("BAL-A"))}>
