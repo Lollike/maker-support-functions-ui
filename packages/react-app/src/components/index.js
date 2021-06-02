@@ -28,6 +28,13 @@ export const Image = styled.img`
   pointer-events: none;
 `;
 
+export const ImageBig = styled.img`
+  height: 30vmin;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  pointer-events: none;
+`;
+
 export const Link = styled.a.attrs({
   target: "_blank",
   rel: "noopener noreferrer",

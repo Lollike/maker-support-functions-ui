@@ -4,7 +4,7 @@ import { getDefaultProvider } from "@ethersproject/providers";
 import { ethers } from "ethers";
 import { useQuery } from "@apollo/react-hooks";
 
-import { Body, Button, Header, Image, Link, Dropdown } from "./components";
+import { Body, Button, Header, Image, Link, Dropdown, ImageBig } from "./components";
 import logo from "./Logo_Maker.png";
 import useWeb3Modal from "./hooks/useWeb3Modal";
 
@@ -247,7 +247,10 @@ function App() {
         <Button onClick={() => updateAllCeilingsKovan()}>
           Update All Debt Ceilings
         </Button>
-        <p><Link href="https://github.com/Lollike/maker-support-functions-ui/">Source code</Link> - <Link href="https://github.com/Lollike/maker-support-functions-ui#disclaimer">Disclaimer</Link></p>
+        <p>🙌 Raise the roof! 🔥</p>
+       <ImageBig src="https://media1.tenor.com/images/1e65e7f61806a024e35fcd1ea1b3326b/tenor.gif?itemid=16393822" />
+       <p><Link href="https://github.com/Lollike/maker-support-functions-ui/">Source code</Link> - <Link href="https://github.com/Lollike/maker-support-functions-ui#disclaimer">Disclaimer</Link></p>
+      
       </Body>
     </div>
   );
