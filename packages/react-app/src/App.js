@@ -247,8 +247,7 @@ function App() {
         <Button onClick={() => updateAllCeilingsKovan()}>
           Update All Debt Ceilings
         </Button>
-        <p>🙌 Raise the roof! 🔥</p>
-       <ImageBig src="https://media1.tenor.com/images/1e65e7f61806a024e35fcd1ea1b3326b/tenor.gif?itemid=16393822" />
+        
        <p><Link href="https://github.com/Lollike/maker-support-functions-ui/">Source code</Link> - <Link href="https://github.com/Lollike/maker-support-functions-ui#disclaimer">Disclaimer</Link></p>
       
       </Body>
