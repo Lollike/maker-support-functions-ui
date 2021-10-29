@@ -139,8 +139,8 @@ function App() {
           <option text="ETH-A">ETH-A</option>
           <option text="ETH-B">ETH-B</option>
           <option text="ETH-C">ETH-C</option>
-          <option text="WSTETH-A">ETH-C</option>
-          <option text="GUNIV3DAIUSDC1-A">UNIV2WBTCETH-A</option> 
+          <option text="WSTETH-A">WSTETH-A</option>
+          <option text="GUNIV3DAIUSDC1-A">GUNIV3DAIUSDC1-A</option> 
           <option text="KNC-A">KNC-A</option>
           <option text="LRC-A">LRC-A</option>
           <option text="MANA-A">MANA-A</option>
