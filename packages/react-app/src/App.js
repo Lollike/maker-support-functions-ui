@@ -57,6 +57,14 @@ async function updateAllCeilingsKovan(){
   AutoExec.bat();
 }
 
+async function updateAllCeilingsGoerli(){
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const AutoExec = new Contract(addresses.autoExecGoerliAddress, abis.autoExec, signer);
+  
+  AutoExec.bat();
+}
+
 async function drip(){
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
@@ -87,6 +95,33 @@ async function pokeKovan(){
   omegapoker.poke();
 }
 
+// AAVE D3M FUNCTIONS
+async function d3mexec(){
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
+  
+  d3m.exec();
+}
+
+async function reap(){
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
+  
+  d3m.reap();
+}
+
+async function collectRewards(){
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
+  const aaveRewards = new Contract(addresses.aaveRewardsAddress, abis.aaveRewards, signer);
+  const aDai = ["0x028171bca77440897b824ca71d1c56cac55b68a3"];
+  const amount = await aaveRewards.getRewardsBalance(aDai, addresses.d3mAddress);
+  console.log(amount);
+  d3m.collect(aDai, amount);
+}
 
 function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
   return (
@@ -126,7 +161,7 @@ function App() {
       <Body> 
         {/* Remove the "hidden" prop and open the JavaScript console in the browser to see what this function does */}
         <h2>Update Maker Debt Ceilings</h2>
-        <h3>Mainnet</h3>
+        {/* <h3>Mainnet</h3> */}
         Select collateral type:
         {/*<Button onClick={() => updateAllCeilings()}>
           Update All Debt Ceilings (this is expensive)
@@ -136,6 +171,7 @@ function App() {
           <option text="BAL-A">BAL-A</option>
           <option text="BAT-A">BAT-A</option>
           <option text="COMP-A">COMP-A</option>
+          <option text="DIRECT-AAVEV2-DAI">DIRECT-AAVEV2-DAI</option>
           <option text="ETH-A">ETH-A</option>
           <option text="ETH-B">ETH-B</option>
           <option text="ETH-C">ETH-C</option>
@@ -165,90 +201,31 @@ function App() {
         <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String(ilkSelect.options[ilkSelect.selectedIndex].text))}>
           Update Debt Ceiling
         </Button></p>
-        { /*<Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("AAVE-A"))}>
-          AAVE-A
+
+        <h2>Manage Aave Dai Direct Depost Module</h2>
+
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("DIRECT-AAVEV2-DAI"))}>
+          Update Aave D3M Ceiling
         </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("BAL-A"))}>
-          BAL-A
+
+        <Button onClick={() => d3mexec()}>
+          Update Dai Position / Dai APR in Aave (Exec)
         </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("BAT-A"))}>
-          BAT-A
+        
+        <Button onClick={() => reap()}>
+          Collect Accrued Dai (Reap)
         </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("COMP-A"))}>
-          COMP-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("ETH-A"))}>
-          ETH-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("ETH-B"))}>
-          ETH-B
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("ETH-C"))}>
-          ETH-C
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("KNC-A"))}>
-          KNC-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("LINK-A"))}>
-          LINK-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("LRC-A"))}>
-          LRC-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("MANA-A"))}>
-          MANA-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("RENBTC-A"))}>
-          RENBTC-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNI-A"))}>
-          UNI-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("WBTC-A"))}>
-          WBTC-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("YFI-A"))}>
-          YFI-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("ZRX-A"))}>
-          ZRX-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2AAVEETH-A"))}>
-          UniV2AaveEth-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2DAIETH-A"))}>
-          UniV2DaiEth-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2DAIUSDC-A"))}>
-         UniV2DaiUsdc-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2DAIUSDT-A"))}>
-         UniV2DaiUsdt-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2ETHUSDT-A"))}>
-          UniV2EthUsdt-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2LINKETH-A"))}>
-          UniV2LinkEth-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2UNIETH-A"))}>
-          UniV2UniEth-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2USDCETH-A"))}>
-         UniV2UsdcEth-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2WBTCDAI-A"))}>
-          UniV2WbtcDai-A
-        </Button>
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("UNIV2WBTCETH-A"))}>
-          UniV2WbtcEth-A
-  </Button>*/}
-        <h3>
-          Kovan
+
+        {/* <Button onClick={() => collectRewards()}>
+          Collect Accrued Aave (Collect)
+        </Button> */}
+       
+        {/* <h3>
+          Görli
         </h3>
-        <Button onClick={() => updateAllCeilingsKovan()}>
+        <Button onClick={() => updateAllCeilingsGoerli()}>
           Update All Debt Ceilings
-        </Button>
+        </Button> */}
         
        <p><Link href="https://github.com/Lollike/maker-support-functions-ui/">Source code</Link> - <Link href="https://github.com/Lollike/maker-support-functions-ui#disclaimer">Disclaimer</Link></p>
       
