@@ -100,16 +100,16 @@ async function d3mexec(){
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
-  
-  d3m.exec();
+  const _gasLimit = 550000;
+  d3m.exec({ gasLimit: _gasLimit });
 }
 
 async function reap(){
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
-  
-  d3m.reap();
+  const _gasLimit = 550000;
+  d3m.reap({ gasLimit: _gasLimit });
 }
 
 async function collectRewards(){
@@ -117,10 +117,11 @@ async function collectRewards(){
   const signer = provider.getSigner();
   const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
   const aaveRewards = new Contract(addresses.aaveRewardsAddress, abis.aaveRewards, signer);
-  const aDai = ["0x028171bca77440897b824ca71d1c56cac55b68a3"];
-  const amount = await aaveRewards.getRewardsBalance(aDai, addresses.d3mAddress);
+  const _aDai = ["0x028171bca77440897b824ca71d1c56cac55b68a3"];
+  const _gasLimit = 550000;
+  const amount = await aaveRewards.getRewardsBalance(_aDai, addresses.d3mAddress);
   console.log(amount);
-  d3m.collect(aDai, amount);
+  d3m.collect(_aDai, amount, { gasLimit: _gasLimit });
 }
 
 function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
@@ -204,21 +205,22 @@ function App() {
 
         <h2>Manage Aave Dai Direct Depost Module</h2>
 
-        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("DIRECT-AAVEV2-DAI"))}>
-          Update Aave D3M Ceiling
-        </Button>
-
         <Button onClick={() => d3mexec()}>
           Update Dai Position / Dai APR in Aave (Exec)
+        </Button>
+
+        <Button onClick={() => updateCeiling(ethers.utils.formatBytes32String("DIRECT-AAVEV2-DAI"))}>
+          Update Aave D3M Ceiling
         </Button>
         
         <Button onClick={() => reap()}>
           Collect Accrued Dai (Reap)
         </Button>
 
-        {/* <Button onClick={() => collectRewards()}>
+        <Button onClick={() => collectRewards()}>
           Collect Accrued Aave (Collect)
-        </Button> */}
+        </Button>
+        <p>Note: MetaMask might underestimate gas required for these actions - set a higher gas limit to ensure execution</p>
        
         {/* <h3>
           Görli

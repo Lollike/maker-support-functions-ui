@@ -11,7 +11,7 @@ const addresses = {
   omegaPokerKovanAddress: "0x7e2531587d25b9fc58aA051D0f19c0Ae809316E9",
   MegaPokerAddress: "0x7472e5830dC6402C22Bb5B3AbbcA14d6a058e482",
   d3mAddress: "0xa13C0c8eB109F5A13c6c90FC26AFb23bEB3Fb04a",
-  aaveRewardsAddress: "0x83D055D382f25e6793099713505c68a5C7535a35"
+  aaveRewardsAddress: "0xd784927Ff2f95ba542BfC824c8a8a98F3495f6b5"
 };
 
 export default addresses;
