@@ -120,7 +120,7 @@ async function collectRewards(){
   const _aDai = ["0x028171bca77440897b824ca71d1c56cac55b68a3"];
   const _gasLimit = 550000;
   const amount = await aaveRewards.getRewardsBalance(_aDai, addresses.d3mAddress);
-  console.log(amount);
+  //console.log(amount);
   d3m.collect(_aDai, amount, { gasLimit: _gasLimit });
 }
 
@@ -220,8 +220,7 @@ function App() {
         <Button onClick={() => collectRewards()}>
           Collect Accrued Aave (Collect)
         </Button>
-        <p>Note: MetaMask might underestimate gas required for these actions - set a higher gas limit to ensure execution</p>
-       
+        
         {/* <h3>
           Görli
         </h3>
