@@ -100,7 +100,7 @@ async function d3mexec(){
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
-  const _gasLimit = 550000;
+  const _gasLimit = 1000000;
   d3m.exec({ gasLimit: _gasLimit });
 }
 
