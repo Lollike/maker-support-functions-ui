@@ -100,7 +100,7 @@ async function d3mexec(){
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
-  const _gasLimit = 1000000;
+  const _gasLimit = 600000;
   d3m.exec({ gasLimit: _gasLimit });
 }
 
@@ -108,7 +108,7 @@ async function reap(){
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
-  const _gasLimit = 550000;
+  const _gasLimit = 600000;
   d3m.reap({ gasLimit: _gasLimit });
 }
 
@@ -118,7 +118,7 @@ async function collectRewards(){
   const d3m = new Contract(addresses.d3mAddress, abis.d3m, signer);
   const aaveRewards = new Contract(addresses.aaveRewardsAddress, abis.aaveRewards, signer);
   const _aDai = ["0x028171bca77440897b824ca71d1c56cac55b68a3"];
-  const _gasLimit = 550000;
+  const _gasLimit = 600000;
   const amount = await aaveRewards.getRewardsBalance(_aDai, addresses.d3mAddress);
   //console.log(amount);
   d3m.collect(_aDai, amount, { gasLimit: _gasLimit });
