@@ -168,30 +168,26 @@ function App() {
           Update All Debt Ceilings (this is expensive)
   </Button>*/}
         <p><Dropdown name="ilkList" id="ilkList">
-          <option text="AAVE-A">AAVE-A</option>
-          <option text="BAL-A">BAL-A</option>
-          <option text="BAT-A">BAT-A</option>
-          <option text="COMP-A">COMP-A</option>
           <option text="DIRECT-AAVEV2-DAI">DIRECT-AAVEV2-DAI</option>
           <option text="ETH-A">ETH-A</option>
           <option text="ETH-B">ETH-B</option>
           <option text="ETH-C">ETH-C</option>
           <option text="WSTETH-A">WSTETH-A</option>
           <option text="GUNIV3DAIUSDC1-A">GUNIV3DAIUSDC1-A</option> 
-          <option text="KNC-A">KNC-A</option>
-          <option text="LRC-A">LRC-A</option>
+          <option text="GUNIV3DAIUSDC1-A">GUNIV3DAIUSDC2-A</option> 
+          <option text="GUSD-A">GUSD-A</option> 
+          <option text="MANA-A">MATIC-A</option>
           <option text="MANA-A">MANA-A</option>
           <option text="RENBTC-A">RENBTC-A</option>
           <option text="UNI-A">UNI-A</option>
           <option text="WBTC-A">WBTC-A</option>
+          <option text="WBTC-A">WBTC-B</option>
+          <option text="WBTC-A">WBTC-C</option>
           <option text="YFI-A">YFI-A</option>
-          <option text="ZRX-A">ZRX-A</option>
-          <option text="UNIV2AAVEETH-A">UNIV2AAVEETH-A</option>
           <option text="UNIV2DAIETH-A">UNIV2DAIETH-A</option>
           <option text="UNIV2DAIUSDC-A">UNIV2DAIUSDC-A</option>
           <option text="UNIV2DAIUSDT-A">UNIV2DAIUSDT-A</option>
           <option text="UNIV2ETHUSDT-A">UNIV2ETHUSDT-A</option>
-          <option text="UNIV2LINKETH-A">UNIV2LINKETH-A</option>
           <option text="UNIV2UNIETH-A">UNIV2UNIETH-A</option>
           <option text="UNIV2USDCETH-A">UNIV2USDCETH-A</option>
           <option text="UNIV2WBTCDAI-A">UNIV2WBTCDAI-A</option>
