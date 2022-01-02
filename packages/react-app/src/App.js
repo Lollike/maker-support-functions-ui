@@ -165,7 +165,7 @@ function App() {
         {/* <h3>Mainnet</h3> */}
         Select collateral type:
         {/*<Button onClick={() => updateAllCeilings()}>
-          Update All Debt Ceilings (this is expensive)
+          Update All Debt Ceilings (this is expensive) - test
   </Button>*/}
         <p><Dropdown name="ilkList" id="ilkList">
           <option text="DIRECT-AAVEV2-DAI">DIRECT-AAVEV2-DAI</option>
