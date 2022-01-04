@@ -168,7 +168,6 @@ function App() {
           Update All Debt Ceilings (this is expensive) - test
   </Button>*/}
         <p><Dropdown name="ilkList" id="ilkList">
-          <option text="DIRECT-AAVEV2-DAI">DIRECT-AAVEV2-DAI</option>
           <option text="ETH-A">ETH-A</option>
           <option text="ETH-B">ETH-B</option>
           <option text="ETH-C">ETH-C</option>
